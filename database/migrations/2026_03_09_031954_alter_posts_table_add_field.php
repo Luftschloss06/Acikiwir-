@@ -14,14 +14,13 @@ return new class extends Migration
         Schema::table('posts', function (Blueprint $table) {
             $table->string('slug')->after('isi')->unique();
             $table->string('thumbnail')->after('slug')->nullable();
-                                $table->enum('status', ['draft', 'published',
-        'archived'])->after('thumbnail')->default('draft');
-    
-        $table->foreignId('user_id')->after('status')->constrained()->cascadeOnDelete();
-        $table->foreignId('category_id')->after('user_id')->nullable()->constrained()->nullOnDelete();
-        $table->timestamp('published_at')->nullable();
-        $table->unsignedBigInteger('views')->default(0);
-        $table->softDeletes();
+            $table->enum('status', ['draft', 'published',
+                        'archived'])->after('thumbnail')->default('draft');
+            $table->foreignId('user_id')->after('status')->constrained()->cascadeOnDelete();
+            $table->foreignId('category_id')->after('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->timestamp('published_at')->nullable();
+            $table->unsignedBigInteger('views')->default(0);
+            $table->softDeletes();
     });
     }
 
