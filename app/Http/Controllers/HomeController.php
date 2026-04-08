@@ -29,4 +29,10 @@ class HomeController extends Controller
     {
     echo "Halaman Proteksi - 1";
     }
+
+    public function proteksi_1_admin()
+    {
+    echo "Halaman Proteksi - 1 - Admin";
+    }
+
 }
